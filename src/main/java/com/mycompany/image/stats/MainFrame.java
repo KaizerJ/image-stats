@@ -455,6 +455,25 @@ public class MainFrame extends javax.swing.JFrame {
         this.stats.calculaEstadisticas(currentImage, viewport.getLocation(),
                 viewport.getExtentSize());
         
-        // Falta coger los resultados y mostrarlos en los text fields
+        // Maximos
+        int[] maximos = stats.getMaximo();
+        
+        this.redMaxTextField.setText(maximos[stats.ROJO] + "");
+        this.greenMaxTextField.setText(maximos[stats.VERDE] + "");
+        this.blueMaxTextField.setText(maximos[stats.AZUL] + "");
+        
+        // Minimos
+        int[] minimos = stats.getMinimo();
+        
+        this.redMinTextField.setText(minimos[stats.ROJO] + "");
+        this.greenMinTextField.setText(minimos[stats.VERDE] + "");
+        this.blueMinTextField.setText(minimos[stats.AZUL] + "");
+        
+        // Promedios
+        int[] medias = stats.getPromedio();
+        
+        this.redMeanTextField.setText(medias[stats.ROJO] + "");
+        this.greenMeanTextField.setText(medias[stats.VERDE] + "");
+        this.blueMeanTextField.setText(medias[stats.AZUL] + "");
     }
 }

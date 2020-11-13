@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollBar;
+import javax.swing.JViewport;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.opencv.core.Core;
@@ -29,6 +31,7 @@ public class MainFrame extends javax.swing.JFrame {
         initEstadisticasImagen();
         initFileChooser();
         initComponents();
+        initScrollBars();
     }
 
     /**
@@ -437,5 +440,21 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void initEstadisticasImagen() {
         this.stats = new EstadisticasImagen();
+    }
+
+    private void initScrollBars() {
+        JScrollBar barraV = this.lienzoScrollPane.getVerticalScrollBar();
+        JScrollBar barraH = this.lienzoScrollPane.getHorizontalScrollBar();
+        
+        barraV.addAdjustmentListener( event -> updateStats());
+        barraH.addAdjustmentListener( event -> updateStats());
+    }
+
+    private void updateStats() {
+        JViewport viewport = this.lienzoScrollPane.getViewport();
+        this.stats.calculaEstadisticas(currentImage, viewport.getLocation(),
+                viewport.getExtentSize());
+        
+        // Falta coger los resultados y mostrarlos en los text fields
     }
 }

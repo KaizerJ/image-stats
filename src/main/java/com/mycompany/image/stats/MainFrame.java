@@ -68,6 +68,8 @@ public class MainFrame extends javax.swing.JFrame {
         blueMaxTextField = new javax.swing.JTextField();
         blueMeanLabel = new javax.swing.JLabel();
         blueMeanTextField = new javax.swing.JTextField();
+        jonayLabel = new javax.swing.JLabel();
+        samuelLabel = new javax.swing.JLabel();
         lienzoScrollPane = new javax.swing.JScrollPane();
         lienzo = new com.mycompany.image.stats.Lienzo();
         menuBar = new javax.swing.JMenuBar();
@@ -237,6 +239,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jonayLabel.setText("Jonay Suárez Ramírez");
+
+        samuelLabel.setText("Samuel Trujillo Santana");
+
         javax.swing.GroupLayout statsPaneLayout = new javax.swing.GroupLayout(statsPane);
         statsPane.setLayout(statsPaneLayout);
         statsPaneLayout.setHorizontalGroup(
@@ -248,6 +254,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(greenStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(blueStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(statsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jonayLabel)
+                    .addComponent(samuelLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         statsPaneLayout.setVerticalGroup(
@@ -255,6 +265,12 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(redStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(greenStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(blueStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statsPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jonayLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(samuelLabel)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout lienzoLayout = new javax.swing.GroupLayout(lienzo);
@@ -306,7 +322,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(statsPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lienzoScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE))
+                    .addComponent(lienzoScrollPane))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -314,7 +330,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(statsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lienzoScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                .addComponent(lienzoScrollPane)
                 .addContainerGap())
         );
 
@@ -409,6 +425,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField greenMinTextField;
     private javax.swing.JPanel greenStatsPane;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel jonayLabel;
     private com.mycompany.image.stats.Lienzo lienzo;
     private javax.swing.JScrollPane lienzoScrollPane;
     private javax.swing.JMenuBar menuBar;
@@ -420,6 +437,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel redMinLabel;
     private javax.swing.JTextField redMinTextField;
     private javax.swing.JPanel redStatsPane;
+    private javax.swing.JLabel samuelLabel;
     private javax.swing.JPanel statsPane;
     // End of variables declaration//GEN-END:variables
     private void initFileChooser() {

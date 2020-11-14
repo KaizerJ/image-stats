@@ -1,5 +1,7 @@
 package com.mycompany.image.stats;
 
+import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +10,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.opencv.core.Core;
@@ -74,6 +77,7 @@ public class MainFrame extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Estadísticas de Imagen");
 
         statsPane.setBorder(javax.swing.BorderFactory.createTitledBorder("Estadísticas"));
 
@@ -83,19 +87,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         redMinTextField.setEditable(false);
         redMinTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        redMinTextField.setText("255");
 
         redMaxLabel.setText("Máximo: ");
 
         redMaxTextField.setEditable(false);
         redMaxTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        redMaxTextField.setText("255");
 
         redMeanLabel.setText("Media: ");
 
         redMeanTextField.setEditable(false);
         redMeanTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        redMeanTextField.setText("255");
 
         javax.swing.GroupLayout redStatsPaneLayout = new javax.swing.GroupLayout(redStatsPane);
         redStatsPane.setLayout(redStatsPaneLayout);
@@ -110,9 +111,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(redStatsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(redMeanTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addGroup(redStatsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(redMinTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addComponent(redMaxTextField)))
+                    .addComponent(redMinTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(redMaxTextField))
                 .addContainerGap())
         );
         redStatsPaneLayout.setVerticalGroup(
@@ -139,19 +139,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         greenMinTextField.setEditable(false);
         greenMinTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        greenMinTextField.setText("255");
 
         greenMaxLabel.setText("Máximo: ");
 
         greenMaxTextField.setEditable(false);
         greenMaxTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        greenMaxTextField.setText("255");
 
         greenMeanLabel.setText("Media: ");
 
         greenMeanTextField.setEditable(false);
         greenMeanTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        greenMeanTextField.setText("255");
 
         javax.swing.GroupLayout greenStatsPaneLayout = new javax.swing.GroupLayout(greenStatsPane);
         greenStatsPane.setLayout(greenStatsPaneLayout);
@@ -194,19 +191,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         blueMinTextField.setEditable(false);
         blueMinTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        blueMinTextField.setText("255");
 
         blueMaxLabel.setText("Máximo: ");
 
         blueMaxTextField.setEditable(false);
         blueMaxTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        blueMaxTextField.setText("255");
 
         blueMeanLabel.setText("Media: ");
 
         blueMeanTextField.setEditable(false);
         blueMeanTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        blueMeanTextField.setText("255");
 
         javax.swing.GroupLayout blueStatsPaneLayout = new javax.swing.GroupLayout(blueStatsPane);
         blueStatsPane.setLayout(blueStatsPaneLayout);
@@ -254,7 +248,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(greenStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(blueStatsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         statsPaneLayout.setVerticalGroup(
             statsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +309,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(statsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lienzoScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                .addComponent(lienzoScrollPane)
                 .addContainerGap())
         );
 
@@ -341,8 +335,7 @@ public class MainFrame extends javax.swing.JFrame {
                         fc.getSelectedFile().getAbsolutePath());
 
                 this.lienzo.setImage((BufferedImage) HighGui.toBufferedImage(currentImage));
-                this.pack();
-
+                updateStats();
             }catch(IOException e){
                 JOptionPane.showMessageDialog(this, 
                                          "Se produjo un error al intentar abrir el fichero", 
@@ -372,12 +365,8 @@ public class MainFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            javax.swing.UIManager.setLookAndFeel(
+                    javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -446,14 +435,29 @@ public class MainFrame extends javax.swing.JFrame {
         JScrollBar barraV = this.lienzoScrollPane.getVerticalScrollBar();
         JScrollBar barraH = this.lienzoScrollPane.getHorizontalScrollBar();
         
+        lienzoScrollPane.setHorizontalScrollBarPolicy(
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        lienzoScrollPane.setVerticalScrollBarPolicy(
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
         barraV.addAdjustmentListener( event -> updateStats());
         barraH.addAdjustmentListener( event -> updateStats());
     }
 
     private void updateStats() {
+        if( currentImage == null ) return;
+        
         JViewport viewport = this.lienzoScrollPane.getViewport();
-        this.stats.calculaEstadisticas(currentImage, viewport.getLocation(),
-                viewport.getExtentSize());
+        Point location = viewport.getViewPosition();
+        Dimension extentSize = viewport.getExtentSize();
+        if( extentSize.width > currentImage.width() - location.x){
+            extentSize.width = currentImage.width() - location.x;
+        }
+        if( extentSize.height > currentImage.height() - location.y){
+            extentSize.height = currentImage.height() - location.y;
+        }
+        this.stats.calculaEstadisticas(currentImage, location,
+                extentSize);
         
         // Maximos
         int[] maximos = stats.getMaximo();

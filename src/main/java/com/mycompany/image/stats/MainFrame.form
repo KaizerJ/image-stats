@@ -34,6 +34,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Estad&#xed;sticas de Imagen"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
@@ -70,7 +71,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="statsPane" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lienzoScrollPane" pref="171" max="32767" attributes="0"/>
+              <Component id="lienzoScrollPane" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -96,7 +97,7 @@
                   <Component id="greenStatsPane" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="blueStatsPane" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="114" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,10 +132,8 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="redMeanTextField" pref="33" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="redMinTextField" pref="33" max="32767" attributes="0"/>
-                              <Component id="redMaxTextField" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="redMinTextField" pref="33" max="32767" attributes="0"/>
+                          <Component id="redMaxTextField" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -173,7 +172,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="redMaxLabel">
@@ -185,7 +183,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="redMeanLabel">
@@ -197,7 +194,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -264,7 +260,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="greenMaxLabel">
@@ -276,7 +271,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="greenMeanLabel">
@@ -288,7 +282,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -355,7 +348,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="blueMaxLabel">
@@ -367,7 +359,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="blueMeanLabel">
@@ -379,7 +370,6 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="255"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -270,8 +270,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         lienzoScrollPane.setViewportView(lienzo);
 
+        fileMenu.setMnemonic('f');
         fileMenu.setText("Ficheros");
 
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        openMenuItem.setMnemonic('a');
         openMenuItem.setText("Abrir");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +284,8 @@ public class MainFrame extends javax.swing.JFrame {
         fileMenu.add(openMenuItem);
         fileMenu.add(jSeparator1);
 
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        exitMenuItem.setMnemonic('s');
         exitMenuItem.setText("Salir");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,6 +430,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.fc = new JFileChooser();
         
         this.fc.addChoosableFileFilter(imgs);
+        this.fc.setFileFilter(imgs);
     }
 
     private void initEstadisticasImagen() {
